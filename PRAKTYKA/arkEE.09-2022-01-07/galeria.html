@@ -17,11 +17,11 @@
     </div>
     <div class="lewy">
         <h3>Przeglądaj zdjęcia</h3>
-        <img src="lanzarotte.jpg" alt="lanzarotte">
-        <img src="pekin.jpg" alt="pekin">
-        <img src="serengeti.jpg" alt="serengeti">
-        <img src="wenecja.jpg" alt="wenecja">
-        <img src="tajlandia.jpg" alt="tajlandia">
+        <img src="lanzarotte.jpg" alt="lanzarotte" >
+        <img src="pekin.jpg" alt="pekin" >
+        <img src="serengeti.jpg" alt="serengeti" >
+        <img src="wenecja.jpg" alt="wenecja" >
+        <img src="tajlandia.jpg" alt="tajlandia" >
     </div>
     <div class="prawy">
         <h3>Obrazy w naszej galerii</h3>
@@ -37,10 +37,30 @@
                 <td>1</td>
             </tr>
         </table>
-        <p>Polub nas <img src="icon-off.png"></p>
+        <p>Polub nas <img src="icon-off.png" id="wyswietl"></p>
         <a href="https://pixabay.com">Odkryj więcej zdjęć</a>
     </div>
-    <div class="stopka"></div>
+    <div class="stopka">PESEL</div>
+    <script>
+        let obrazy = document.getElementsByTagName("img")
+        console.log(obrazy[2].src)
 
+        obrazy[1].addEventListener("click", event=>{
+            obrazy[0].src = obrazy[1].src
+        })
+        obrazy[2].addEventListener("click", event=>{
+            obrazy[0].src = obrazy[2].src
+        })
+        obrazy[3].addEventListener("click", event=>{
+            obrazy[0].src = obrazy[3].src
+        })
+        obrazy[4].addEventListener("click", event=>{
+            obrazy[0].src = obrazy[4].src
+        })
+        obrazy[5].addEventListener("click", event=>{
+            obrazy[0].src = obrazy[5].src
+        })
+        
+    </script>
 </body>
 </html>
