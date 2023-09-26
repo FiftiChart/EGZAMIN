@@ -45,21 +45,26 @@
         let obrazy = document.getElementsByTagName("img")
         console.log(obrazy[2].src)
 
-        obrazy[1].addEventListener("click", event=>{
-            obrazy[0].src = obrazy[1].src
+        for(let i = 1; i<=5;i++){
+            obrazy[i].addEventListener("click", event=>{
+            obrazy[0].src = obrazy[i].src
         })
-        obrazy[2].addEventListener("click", event=>{
-            obrazy[0].src = obrazy[2].src
-        })
-        obrazy[3].addEventListener("click", event=>{
-            obrazy[0].src = obrazy[3].src
-        })
-        obrazy[4].addEventListener("click", event=>{
-            obrazy[0].src = obrazy[4].src
-        })
-        obrazy[5].addEventListener("click", event=>{
-            obrazy[0].src = obrazy[5].src
-        })
+        }
+        // obrazy[1].addEventListener("click", event=>{
+        //     obrazy[0].src = obrazy[1].src
+        // })
+        // obrazy[2].addEventListener("click", event=>{
+        //     obrazy[0].src = obrazy[2].src
+        // })
+        // obrazy[3].addEventListener("click", event=>{
+        //     obrazy[0].src = obrazy[3].src
+        // })
+        // obrazy[4].addEventListener("click", event=>{
+        //     obrazy[0].src = obrazy[4].src
+        // })
+        // obrazy[5].addEventListener("click", event=>{
+        //     obrazy[0].src = obrazy[5].src
+        // })
         
     </script>
 </body>
