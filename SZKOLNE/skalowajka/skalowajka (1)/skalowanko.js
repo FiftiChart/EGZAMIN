@@ -29,14 +29,46 @@ let wartosc = skala.value
 
 let orginal_x = obraz.width
 let orginal_y = obraz.height
-const orginal = []
 
-for(let i = 0; i < mapka.length; i++){
-        const tablica = mapka[i].coords.split(",")
+
+function pobor(){
+    let obrazy = document.getElementsByTagName("img")
+    let mapy = document.getElementsByTagName("map")
+    let pary = []
+    for(let i=0; i<obrazy.length; i++){
+        let tempArray = []
+        tempArray.push(obrazy[i])
+        for(let a=0; a<mapy.length; a++){
+            if(obrazy[i].useMap.substr(1)==mapy[a].name){
+                tempArray.push(mapy[a])
+                pary.push(tempArray)
+                break
+            }
+        }
+    }
+    console.log(pary)
+    return pary
+}
+
+function regiony(mapa){
+    let regions = mapa.getElementsByTagName("area")
+    const orginal = []
+    for(let i = 0; i < regions.length; i++){
+        const tablica = regions[i].coords.split(",")
         orginal.push(tablica)
     }
+    console.log(orginal)
+    return orginal
+}
+let pary = pobor()
+for(let i = 0; i < pary.length; i++){
+    pary[i].push(regiony(pary[i][1]))
+}
+console.log(pary)
+// let regions_orginal = []
+// for()
 
-console.log(mapka[0].coords)
+
 
 obraz.height = orginal_y * wartosc
 obraz.width = orginal_x * wartosc

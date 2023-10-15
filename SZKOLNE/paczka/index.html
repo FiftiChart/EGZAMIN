@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kostki</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    <div class="glowny">
+        <h1>Machnij kostką...</h1>
+        <img src="kostka_def.gif" alt="kostka" id="kostki">
+    </div>
+    <div class="caly" style="visibility: hidden;">
+        <div class="lewy">
+            <h2>Aktualny wynik</h2>
+        </div>
+        <div class="prawy">
+            <hr>
+            <p id="los"></p>
+            <p>ostatnie wyniki:</p>
+            <br>
+            <table>
+                <tr id="nr_los">
+                    <th>nr losowania</th>
+                </tr>
+                <tr id="wynik">
+                    <td>wynik</td>
+                </tr>
+            </table>
+            <br>
+            <p>statystyki:</p>
+            <table>
+                <tr>
+                    <th>wyniki</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                </tr>
+                <tr >
+                    <td>częstotliwość wypadania</td>
+                    <td id="one">0</td>
+                    <td id="two">0</td>
+                    <td id="three">0</td>
+                    <td id="four">0</td>
+                    <td id="five">0</td>
+                    <td id="six">0</td>
+                </tr>
+            </table>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    <div class="history">
+        <button id="przycisk">Pokaż historię</button>
+        <div class="hista">
+            
+        </div>
+    </div>
+    <script src="rzut.js"></script>
+</body>
+</html>

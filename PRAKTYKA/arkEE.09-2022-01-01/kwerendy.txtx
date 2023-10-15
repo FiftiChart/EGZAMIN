@@ -1,0 +1,3 @@
+Zapytanie 1
+INSERT INTO karty_wedkarskie(imie, nazwisko, adres, data_zezwolenia, punkty) VALUES
+("Grzegorz", "Niemczyk", "Gdynia, Batorego 14/5", "2018-02-23", 0);

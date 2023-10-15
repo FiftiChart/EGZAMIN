@@ -1,0 +1,74 @@
+body{
+    width: 100%;
+    background-color: mediumpurple;
+}
+.glowny{
+    width: 95%;
+    box-shadow: 5px 10px chocolate;
+    background-color:moccasin;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+.caly{
+    background-color: orange;
+    box-shadow: 5px 10px chocolate;
+    padding: 10px;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: auto;
+}
+.lewy{
+    background-color: moccasin;
+    width: 16%;
+    height: 450px;
+    padding-top: 1%;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    color: orange;
+    float: left;
+    
+}
+.lewy > h2{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+.prawy{
+    background-color: moccasin;
+    width: 78%;
+    height: 450px;
+    float: left;
+    margin-left: 1%;
+    padding-top: 1%;
+    padding-left: 3%;
+    padding-right: 2%;
+}
+th,td{
+    border: dotted orange;
+    padding: 3px;
+}
+
+table:hover{
+    font-size: 120%;
+}
+
+.history{
+    width: 98%;
+    margin-top: 20px;
+    margin-left: 1%;
+    margin-right: 2%;
+    visibility: hidden;
+}
+button{
+    width: 100%;
+    text-align: center;
+    background-color: moccasin;
+}
+.hista{
+    background-color: orange;
+    padding: 10px;
+}
+
