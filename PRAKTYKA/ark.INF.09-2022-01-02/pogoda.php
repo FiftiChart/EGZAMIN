@@ -20,9 +20,36 @@
                 <th>CIŚNIENIE [hPa]</th>
             </tr>
             <?php
+
             // Zrobić skrypt dwiema pętlami
             // pobieranie rekordów - zewnętrzną
             // wpisywanie <td> - wewnętrzną (foreach)
+
+            $c = mysqli_connect("localhost", "root", "", "prognoza");
+            $q = mysqli_query($c ,"SELECT * FROM pogoda WHERE miasta_id = 1 ORDER BY data_prognozy");
+
+
+            // while ($f = mysqli_fetch_row($q)){
+            //     print_r("<tr>");
+            //     for ($i = 2; $i<=6; $i++){
+            //         print_r("<td>$f[$i]</td>");
+            //     }
+            //     print_r("</tr>");
+            // }
+
+            $l = mysqli_num_rows($q);
+
+            for ($i = 0; $i<$l; $i++){
+                $f = mysqli_fetch_row($q);
+                unset($f[0],$f[1]);
+                print_r("<tr>");
+                foreach ($f as $k){
+                    print_r("<td>$k</td>");
+                }
+                print_r("<tr>");
+            }
+
+            mysqli_close($c);
 
             ?>
         </table>
