@@ -35,23 +35,12 @@
             <p>Autor: Maciej Glugla</p>
         </div>
         <div class="prawy">
-
-
             <ol>
                 <?php
-                if (isset($_POST['zobacz'])) {
-                    $c = mysqli_connect('localhost', 'root', '', 'egzamin');
+                $c = mysqli_connect('localhost', 'root', '', 'egzamin2');
+                $q = mysqli_query($c, "SELECT imie, nazwisko from zawodnik WHERE pozycja_id = $numer");
 
-                    $numer = $_POST['lista'];
-                    $qr = "SELECT imie, nazwisko from zawodnik WHERE pozycja_id = $numer";
-                    $result = $conn->query($qr);
-                    while ($wiersz = mysqli_fetch_assoc($result)) {
-                        $imie = $wiersz['imie'];
-                        $nazwisko = $wiersz['nazwisko'];
-                        echo "<br><li> $imie&nbsp;$nazwisko </li>";
-                    }
-                    $result = $conn->query($qr);
-                }
+                mysqli_close($c);
                 ?>
             </ol>
 
@@ -63,22 +52,9 @@
 
     <div class="TeamContainer-wrapper">
         <?php
-        $c = mysqli_connect('localhost', 'root', '', 'egzamin');
-
-        $q = "SELECT zespol, punkty, grupa FROM liga ORDER BY punkty DESC";
-        $result = $c->query($q);
-        while ($row = $result->fetch_assoc()) {
-            $zespol = $row['zespol'];
-            $punkty = $row['punkty'];
-            $grupa = $row['grupa'];
-
-            echo '<div class="TeamContainer">';
-            echo "<br><h2>$zespol</h2>";
-            echo "<h1><br>$punkty<br><br></h1>";
-            echo "<p>Grupa: $grupa</p><br>";
-            echo '</div>';
-        }
-        mysqli_close($c)
+        $c = mysqli_connect('localhost', 'root', '', 'egzamin2');
+        $q = mysqli_query($c, "SELECT zespol, punkty, grupa FROM liga ORDER BY punkty DESC");
+        mysqli_close($c);
 
         ?>
     </div>

@@ -48,12 +48,12 @@ main {
     float: right;
 }
 
-.TeamContainer-wrapper {
+.liga {
     display: flex;
     justify-content: center;
 }
 
-.TeamContainer {
+.liga2 {
     display: inline-block;
     text-align: center;
     align-items: center;
@@ -64,7 +64,7 @@ main {
     border-radius: 15px;
 }
 
-.TeamContainer:hover {
+.liga2:hover {
     color: black;
     background-color: white;
 }

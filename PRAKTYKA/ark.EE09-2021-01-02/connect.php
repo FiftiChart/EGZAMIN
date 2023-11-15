@@ -1,62 +1,8 @@
 <?php
 $conn = mysqli_connect(
     'localhost',
-    'root', 
+    'root',
     '',
-    'reprezentacja'
+    'egzamin'
     );
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Jan Kupczyk -->
