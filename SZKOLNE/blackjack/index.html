@@ -4,94 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="reset.css">
+    <!-- <link rel="stylesheet" href="reset.css"> -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="actions">
-        <button>Biorę kartę</button>
-        <button>Pasuję</button>
+        <button class="action">Biorę kartę</button>
+        <button class="action" disabled>Pasuję</button>
     </div>
     <div id="players">
         <div class="player">
-            <div class="card" style="position: absolute; top: 50px; left: 60px;"><img src="cards/10karo.png"></div>
-            <div class="card" style="position: absolute; top: 60px; left: 70px;"><img src="cards/10karo.png"></div>
-            <div class="card" style="position: absolute; top: 70px; left: 80px;"><img src="cards/10karo.png"></div>
-            <div class="card" style="position: absolute; top: 20px; left: 20px;"></div>
-            <div class="card" style="position: absolute; top: 20px; left: 20px;"></div>
-            <div class="card" style="position: absolute; top: 20px; left: 20px;"></div>
-            <div class="card" style="position: absolute; top: 20px; left: 20px;"></div>
-            <div class="card" style="position: absolute; top: 20px; left: 20px;"></div>
-            <div class="card" style="position: absolute; top: 20px; left: 20px;"></div>
             <p>Twoja łapa.</p>
         </div>
         <div class="player">
             <p>Łapa CPU.</p>
         </div>
     </div>
+    <p class="results"></p>
+    <p class="results"></p>
     <div id="summary">
-        gracz <input type="range" name="" id="" value="50"> cpu
+        gracz <input type="range" id="advantage" value="10" min="0" max="20" disabled> cpu
         <hr>
-        <button>Następna runda</button>
+        <div id="game_answer"></div>
+        <button id="next_round" style="display: none;">Następna runda</button>
     </div>
+    <p id="eye_p">Gracz: </p>
+    <p id="eye_cpu">CPU: </p>
     
-<script type="text/javascript">
-    cards = [
-        '10kier.png',
-        '10karo.png',
-        '10pik.png',
-        '10trefl.png',
-        '2karo.png',
-        '2kier.png',
-        '2pik.png',
-        '2trefl.png',
-        '3karo.png',
-        '3kier.png',
-        '3pik.png',
-        '3trefl.png',
-        '4karo.png',
-        '4kier.png',
-        '4pik.png',
-        '4trefl.png',
-        '5karo.png',
-        '5kier.png',
-        '5pik.png',
-        '5trefl.png',
-        '6karo.png',
-        '6kier.png',
-        '6pik.png',
-        '6trefl.png',
-        '7karo.png',
-        '7kier.png',
-        '7pik.png',
-        '7trefl.png',
-        '8karo.png',
-        '8kier.png',
-        '8pik.png',
-        '8trefl.png',
-        '9karo.png',
-        '9kier.png',
-        '9pik.png',
-        '9trefl.png',
-        'Akaro.png',
-        'Akier.png',
-        'Apik.png',
-        'Atrefl.png',
-        'Jkaro.png',
-        'Jkier.png',
-        'Jpik.png',
-        'Jtrefl.png',
-        'Kkaro.png',
-        'Kkier.png',
-        'Kpik.png',
-        'Ktrefl.png',
-        'Qkaro.png',
-        'Qkier.png',
-        'Qpik.png',
-        'Qtrefl.png'
-        ]
-
-</script>
+<script src="okok.js"></script>
 
 </body>
 </html>
