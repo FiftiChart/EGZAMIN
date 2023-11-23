@@ -1,0 +1,55 @@
+:root{
+    --kolor: rgb(0,0,128);
+    --jasny-nieb: rgb(30, 144, 255);
+    --szary: rgb(192,192,192);
+}
+.b_lewy, .b_prawy{
+    width: 25%;
+    height: 200px;
+    float: left;
+}
+.b_srodkowy{
+    text-align: center;
+    width: 50%;
+    height: 200px;
+    font-size: 250%;
+    float: left;
+}
+.glowny{
+    clear: both;
+    background-color: var(--kolor);
+    padding: 60px;
+    text-transform: capitalize;
+}
+.s_lewy{
+    text-align: center;
+    width: 50%;
+    float: left;
+}
+.s_prawy{
+    text-align: right;
+    width: 50%;
+    padding: 100px 0px 0px 0px;
+    float: left;
+}
+body{
+    font-family: Garamond;
+    background-color: var(--jasny-nieb);
+    color: white;
+}
+p{
+    padding: 20px;
+    font-size: 200%;
+    border: 1px solid var(--szary);
+}
+p:hover{
+    background-color: var(--szary);
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+td, th{
+    border: 1px solid var(--szary);
+    padding: 10px;
+}

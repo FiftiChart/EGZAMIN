@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 14 Sty 2019, 11:19
+-- Czas generowania: 21 Sty 2019, 09:34
 -- Wersja serwera: 10.1.36-MariaDB
 -- Wersja PHP: 7.2.11
 
@@ -25,27 +25,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `liga`
+-- Struktura tabeli dla tabeli `odloty`
 --
 
-CREATE TABLE `liga` (
+CREATE TABLE `odloty` (
   `id` int(10) UNSIGNED NOT NULL,
-  `zespol` varchar(3) DEFAULT NULL,
-  `punkty` int(10) UNSIGNED DEFAULT NULL,
-  `grupa` char(1) DEFAULT NULL
+  `samoloty_id` int(10) UNSIGNED NOT NULL,
+  `nr_rejsu` varchar(8) DEFAULT NULL,
+  `kierunek` varchar(10) DEFAULT NULL,
+  `czas` time NOT NULL,
+  `dzien` date DEFAULT NULL,
+  `status_lotu` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Zrzut danych tabeli `liga`
+-- Zrzut danych tabeli `odloty`
 --
 
-INSERT INTO `liga` (`id`, `zespol`, `punkty`, `grupa`) VALUES
-(1, 'EVG', 34, 'A'),
-(2, 'FCB', 21, 'A'),
-(3, 'RM', 5, 'B'),
-(4, 'JUV', 13, 'B'),
-(5, 'ARS', 24, 'C'),
-(6, 'CHL', 17, 'C');
+INSERT INTO `odloty` (`id`, `samoloty_id`, `nr_rejsu`, `kierunek`, `czas`, `dzien`, `status_lotu`) VALUES
+(1, 1, 'FR1646', 'Neapol', '09:20:00', '2019-07-25', 'wystartowal'),
+(2, 1, 'FR1327', 'ALICANTE', '09:10:00', '2019-07-25', 'Opozniony 10 min'),
+(3, 2, 'W63425', 'Warszawa', '09:45:00', '2019-07-25', 'odprawa'),
+(4, 3, 'LX5647', 'Londyn LT', '10:03:00', '2019-07-25', 'odprawa'),
+(5, 3, 'LX5673', 'Malta', '10:06:00', '2019-07-25', ''),
+(6, 3, 'LX5622', 'Wieden', '10:13:00', '2019-07-25', ''),
+(7, 4, 'LH9821', 'Berlin', '10:16:00', '2019-07-25', ''),
+(8, 4, 'LH9888', 'Hamburg', '10:19:00', '2019-07-25', ''),
+(9, 4, 'LH9331', 'Monachium', '10:22:00', '2019-07-25', ''),
+(10, 2, 'W68769', 'Zurych', '09:56:00', '2019-07-25', 'boarding');
 
 -- --------------------------------------------------------
 
@@ -71,31 +78,54 @@ INSERT INTO `pozycja` (`id`, `nazwa`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `rozgrywka`
+-- Struktura tabeli dla tabeli `przyloty`
 --
 
-CREATE TABLE `rozgrywka` (
+CREATE TABLE `przyloty` (
   `id` int(10) UNSIGNED NOT NULL,
-  `zespol1` varchar(3) NOT NULL,
-  `zespol2` varchar(3) DEFAULT NULL,
-  `wynik` varchar(20) DEFAULT NULL,
-  `data_rozgrywki` date DEFAULT NULL
+  `samoloty_id` int(10) UNSIGNED NOT NULL,
+  `nr_rejsu` varchar(8) DEFAULT NULL,
+  `kierunek` varchar(10) DEFAULT NULL,
+  `czas` time DEFAULT NULL,
+  `dzien` date DEFAULT NULL,
+  `status_lotu` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Zrzut danych tabeli `rozgrywka`
+-- Zrzut danych tabeli `przyloty`
 --
 
-INSERT INTO `rozgrywka` (`id`, `zespol1`, `zespol2`, `wynik`, `data_rozgrywki`) VALUES
-(1, 'EVG', 'FCB', '3:1', '2019-05-14'),
-(2, 'EVG', 'FCB', '2:3', '2019-05-20'),
-(3, 'RM', 'FCB', '2:2', '2019-05-11'),
-(4, 'JUV', 'ARS', '3:1', '2019-05-12'),
-(5, 'JUV', 'FCB', '2:3', '2019-05-17'),
-(6, 'EVG', 'JUV', '3:0', '2019-05-13'),
-(7, 'RM', 'JUV', '2:2', '2019-05-15'),
-(8, 'EVG', 'RM', '2:0', '2019-05-16'),
-(9, 'EVG', 'FCB', '1:1', '2019-05-22');
+INSERT INTO `przyloty` (`id`, `samoloty_id`, `nr_rejsu`, `kierunek`, `czas`, `dzien`, `status_lotu`) VALUES
+(1, 2, 'W63454', 'Warszawa', '09:45:00', '2019-07-29', 'wyladowal'),
+(2, 3, 'LX3447', 'Londyn LT', '10:03:00', '2019-07-29', 'opoznienie 10 min'),
+(3, 3, 'LX5473', 'Malta', '10:06:00', '2019-07-29', 'planowy'),
+(4, 3, 'LX5728', 'Wieden', '10:13:00', '2019-07-29', ''),
+(5, 4, 'LH9829', 'Berlin', '10:16:00', '2019-07-29', ''),
+(6, 4, 'LH9898', 'Hamburg', '10:19:00', '2019-07-29', ''),
+(7, 4, 'LH3331', 'Monachium', '10:22:00', '2019-07-29', ''),
+(8, 2, 'W68546', 'Zurych', '10:33:00', '2019-07-29', '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `samoloty`
+--
+
+CREATE TABLE `samoloty` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `typ` varchar(20) DEFAULT NULL,
+  `linie` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `samoloty`
+--
+
+INSERT INTO `samoloty` (`id`, `typ`, `linie`) VALUES
+(1, 'Boening 787', 'RYANAIR'),
+(2, 'Boening 737', 'WIZZAIR'),
+(3, 'Boening 787', 'SWISS'),
+(4, 'Boening 737', 'LUFTHANSA');
 
 -- --------------------------------------------------------
 
@@ -151,74 +181,6 @@ INSERT INTO `uslugi` (`id`, `kadra_id`, `rodzaj`, `nazwa`, `cena`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `wyniki`
---
-
-CREATE TABLE `wyniki` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `dyscyplina_id` int(10) UNSIGNED NOT NULL,
-  `sportowiec_id` int(10) UNSIGNED NOT NULL,
-  `wynik` decimal(5,2) DEFAULT NULL,
-  `dataUstanowienia` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Zrzut danych tabeli `wyniki`
---
-
-INSERT INTO `wyniki` (`id`, `dyscyplina_id`, `sportowiec_id`, `wynik`, `dataUstanowienia`) VALUES
-(1, 1, 1, '12.40', '2015-10-14'),
-(2, 1, 1, '12.00', '2015-10-06'),
-(3, 1, 2, '11.80', '2015-10-14'),
-(4, 1, 2, '11.90', '2015-10-06'),
-(5, 1, 3, '11.50', '2015-10-14'),
-(6, 1, 3, '11.56', '2015-10-06'),
-(7, 1, 4, '11.70', '2015-10-14'),
-(8, 1, 4, '11.67', '2015-10-06'),
-(9, 1, 5, '11.30', '2015-10-14'),
-(10, 1, 5, '11.52', '2015-10-06'),
-(11, 1, 6, '12.10', '2015-10-14'),
-(12, 1, 6, '12.00', '2015-10-06'),
-(13, 3, 1, '63.00', '2015-11-11'),
-(14, 3, 1, '63.60', '2015-10-13'),
-(15, 3, 2, '64.00', '2015-11-11'),
-(16, 3, 2, '63.60', '2015-10-13'),
-(17, 3, 3, '60.00', '2015-11-11'),
-(18, 3, 3, '61.60', '2015-10-13'),
-(19, 3, 4, '63.50', '2015-11-11'),
-(20, 3, 4, '63.60', '2015-10-13'),
-(21, 3, 5, '70.00', '2015-10-07'),
-(22, 3, 6, '68.00', '2015-10-07');
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `zawodnik`
---
-
-CREATE TABLE `zawodnik` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `pozycja_id` int(10) UNSIGNED NOT NULL,
-  `imie` varchar(20) DEFAULT NULL,
-  `nazwisko` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Zrzut danych tabeli `zawodnik`
---
-
-INSERT INTO `zawodnik` (`id`, `pozycja_id`, `imie`, `nazwisko`) VALUES
-(1, 1, 'Wojciech', 'Szczesny'),
-(2, 2, 'Rafal', 'Pietrzak'),
-(3, 2, 'Jan', 'Bednarek'),
-(4, 3, 'Grzegorz', 'Krychowiak'),
-(5, 3, 'Kamil', 'Grosicki'),
-(6, 4, 'Arkadiusz', 'Milik'),
-(7, 4, 'Adam', 'Buksa');
-
--- --------------------------------------------------------
-
---
 -- Struktura tabeli dla tabeli `zdjecia`
 --
 
@@ -248,9 +210,9 @@ INSERT INTO `zdjecia` (`id`, `nazwaPliku`, `podpis`) VALUES
 --
 
 --
--- Indeksy dla tabeli `liga`
+-- Indeksy dla tabeli `odloty`
 --
-ALTER TABLE `liga`
+ALTER TABLE `odloty`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -260,9 +222,15 @@ ALTER TABLE `pozycja`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `rozgrywka`
+-- Indeksy dla tabeli `przyloty`
 --
-ALTER TABLE `rozgrywka`
+ALTER TABLE `przyloty`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `samoloty`
+--
+ALTER TABLE `samoloty`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -271,12 +239,6 @@ ALTER TABLE `rozgrywka`
 ALTER TABLE `uslugi`
   ADD PRIMARY KEY (`id`),
   ADD KEY `uslugi_FKIndex1` (`kadra_id`);
-
---
--- Indeksy dla tabeli `zawodnik`
---
-ALTER TABLE `zawodnik`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeksy dla tabeli `zdjecia`
@@ -289,10 +251,10 @@ ALTER TABLE `zdjecia`
 --
 
 --
--- AUTO_INCREMENT dla tabeli `liga`
+-- AUTO_INCREMENT dla tabeli `odloty`
 --
-ALTER TABLE `liga`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `odloty`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT dla tabeli `pozycja`
@@ -301,22 +263,22 @@ ALTER TABLE `pozycja`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT dla tabeli `rozgrywka`
+-- AUTO_INCREMENT dla tabeli `przyloty`
 --
-ALTER TABLE `rozgrywka`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+ALTER TABLE `przyloty`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT dla tabeli `samoloty`
+--
+ALTER TABLE `samoloty`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT dla tabeli `uslugi`
 --
 ALTER TABLE `uslugi`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT dla tabeli `zawodnik`
---
-ALTER TABLE `zawodnik`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT dla tabeli `zdjecia`

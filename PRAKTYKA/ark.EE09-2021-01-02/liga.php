@@ -37,10 +37,16 @@
         <div class="prawy">
             <ol>
                 <?php
-                $c = mysqli_connect('localhost', 'root', '', 'egzamin2');
-                $q = mysqli_query($c, "SELECT imie, nazwisko from zawodnik WHERE pozycja_id = $numer");
-
-                mysqli_close($c);
+                if (!empty($_POST["lista"])) {
+                    $numer = $_POST["lista"];
+                    $c = mysqli_connect('localhost', 'root', '', 'egz2');
+                    $q = mysqli_query($c, "SELECT imie, nazwisko from zawodnik WHERE pozycja_id = $numer");
+                    while ($row = mysqli_fetch_row($q)) {
+                        echo "<li>";
+                        echo "<p>$row[0] $row[1]</p>";
+                        echo "</li>";
+                    }
+                }
                 ?>
             </ol>
 
@@ -50,10 +56,15 @@
 
     <h3>Liga Mistrzów</h3>
 
-    <div class="TeamContainer-wrapper">
+    <div class="liga">
         <?php
-        $c = mysqli_connect('localhost', 'root', '', 'egzamin2');
         $q = mysqli_query($c, "SELECT zespol, punkty, grupa FROM liga ORDER BY punkty DESC");
+        while ($row = mysqli_fetch_row($q)) {
+            echo "<div class='liga2'>";
+            echo "<h2>$row[0]</h2><h1>$row[1]</h1><p>grupa: $row[2]</p>";
+            echo "</div>";
+        }
+
         mysqli_close($c);
 
         ?>
