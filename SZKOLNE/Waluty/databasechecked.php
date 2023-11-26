@@ -9,7 +9,10 @@ mysqli_close($c);
 
 $c = mysqli_connect("localhost", "root", "", "waluty");
 
-$kw2 = "CREATE TABLE IF NOT EXISTS kursy (id_kursu INT PRIMARY KEY AUTO_INCREMENT, data DATE, nazwa VARCHAR(3), kwota FLOAT(4,4))";
+$kw2 = "CREATE TABLE IF NOT EXISTS kursy (id_kursu INT PRIMARY KEY AUTO_INCREMENT,
+ data DATE NOT NULL,
+ nazwa VARCHAR(3) NOT NULL,
+ kwota DECIMAL(10,4) NOT NULL)";
 
-$q = mysqli_query($c, $kw2);
+mysqli_query($c, $kw2);
 mysqli_close($c);
