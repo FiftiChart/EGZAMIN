@@ -18,4 +18,7 @@ aktualne_dane.addEventListener("click", event=>{
     .catch(function(error){
         console.log('Błąd pobierania dnaych z API NBP:',error)
     })
+    setTimeout(function(){
+        location.reload();
+    }, 1000);
 })

@@ -2,17 +2,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
 /* font-family: 'Playfair Display', serif; */
+/*
+#005927
+#002622
+#FFCD01
+#00401C
+*/
+:root{
+    --bg: #00401C;
+    --mc: #FFCD01;
+}
+
 body{
-    background-color: #002622;
+    background-color: var(--bg);
 }
 .page{
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 150%;
-    background-color: #002622;
+    background-color: var(--bg);
     font-family: 'Playfair Display', serif;
-    color: #FFCD01;
+    color: var(--mc);
 }
 .baner{
     font-size: 2em;
@@ -21,45 +32,82 @@ body{
 .menu{
     display: flex;
     width: 100%;
-    height: 6.5vh;
+    height: 60px;
     padding-bottom: 1vh;
 }
 
 .menu > button{
     width: 100%;
     font-size: 1em;
-    background-color: #FFCD01;
-    color: #002622;
+    background-color: var(--mc);
+    color: var(--bg);
     border: none;
     font-family: 'Playfair Display';
-    padding: 1vh;
+    padding: 10px;
     flex: 1;
     transition:  flex 0.5s, border 0.1s, font-size 0.5s;
 }
 
 .menu > button:hover{
-    border:#002622 3px solid;
+    border: var(--bg) 5px solid;
     font-size: 1.2em;
     flex: 2;
 }
 
 .menu > button:active{
-    color: #FFCD01;
-    background-color: #002622;
-    border: #FFCD01 3px solid;
+    color: var(--mc);
+    background-color: var(--bg);
+    border: var(--mc) 5px solid;
 }
 
+
 #aktualne_dane{
-    background-color: #FFCD01;
-    color: #002622;
+    background-color: var(--mc);
+    color: var(--bg);
     border: none;
-    transition: background-color 0.2s, color 0.2s;
+    height: auto;
+    font-family: 'Playfair Display';
+    padding: 20px;
+    font-size: 1em;
+    /* border-radius: 10px; */
 }
 
 
 #aktualne_dane:active{
-    background-color: #002622;
-    color: #FFCD01;
-    border: #FFCD01 2px solid;
+    background-color: var(--bg);
+    color: var(--mc);
+    border: var(--mc) 5px solid;
+    border-top: none;
+    border-bottom: none;
+    
+}
+
+.hania{
+    border: var(--mc) 5px solid;
+    width: 99.5%;
+    display: flex;
+}
+
+.hania > *{
+    margin: auto;
+}
+
+.select{
+    display: flex;
+    width: 100%;
+}
+
+.select > *{
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--mc);
+    color: var(--bg);
+    font-family: 'Playfair Display';
+    height: auto;
+    width: 100%;
+    font-size: 1em;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    flex: 1;
 }
 
