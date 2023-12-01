@@ -1,0 +1,56 @@
+:root{
+    --bg1: #29434E;
+    width: 100%;
+}
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Verdana;
+}
+.baner_l{
+    background-color: var(--bg1);
+    color: white;
+    text-align: center;
+    width: 70%;
+    height: 70px;
+    float: left;
+}
+.baner_p{
+    background-color: var(--bg1);
+    color: white;
+    width: 30%;
+    height: 70px;
+    float: left;
+}
+.polecamy, .fantastyczne{
+    clear: both;
+    background-color: #B0BEC5;
+    height: 320px;
+    overflow: scroll;
+}
+
+
+.stopka{
+    background-color: var(--bg1);
+    color: white;
+    clear: both;
+}
+
+h3{
+    background-color: #546E7A;
+    color: white;
+    margin: 0px;
+}
+h4{
+    text-align: center;
+    margin: 0px;
+}
+
+.film{
+    margin: 5px;
+    width: 226px;
+    height: 280px;
+    float: left;
+}
