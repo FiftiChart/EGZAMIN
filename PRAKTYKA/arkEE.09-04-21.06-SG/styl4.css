@@ -1,0 +1,37 @@
+:root{
+    --bg1: #AF4448;
+    --bg2: #FFA4A2;
+}
+
+body{
+    font-family: Helvetica;
+}
+
+.baner, .stopka{
+    background-color: var(--bg1);
+    color: white;
+    text-align: center;
+    height: 20px;
+}
+
+.lewy, .prawy{
+    background-color: var(--bg2);
+    height: 650px;
+    width: 50%;
+    float: left;
+}
+
+.stopka{
+    clear: both;
+}
+
+h4{
+    margin: 0px;
+}
+
+#wysli{
+    background-color: var(--bg1);
+    color: white;
+    padding: 5px;
+    margin: 10px;
+}
