@@ -1,0 +1,7 @@
+SELECT klienci.imie, klienci.nazwisko, klienci.punkty FROM klienci ORDER BY klienci.punkty DESC LIMIT 3;
+
+SELECT typy.nazwa, COUNT(klienci.punkty) FROM typy, klienci WHERE typy.id = klienci.Typy_id GROUP BY typy.nazwa;
+
+SELECT klienci.zdjecie, klienci.imie, opinie.opinia FROM klienci, opinie, typy WHERE klienci.id = opinie.Klienci_id AND typy.id = klienci.Typy_id and typy.id IN (2,3);
+
+ALTER TABLE klienci ADD COLUMN adres varchar(50);
