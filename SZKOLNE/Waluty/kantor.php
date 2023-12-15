@@ -44,7 +44,9 @@
 
                     while($f = mysqli_fetch_row($q)){
                         echo "<button class='waluta' id='$f[0]'>$f[0]</button>";
-                    }
+                    };
+                    include("tablecreate.php");
+
                 ?>
             </div>
         </div>
