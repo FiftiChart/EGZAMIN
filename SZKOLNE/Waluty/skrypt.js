@@ -32,24 +32,12 @@ else{
 
     for(let i = 0; i < przyciski.length; i++){
         przyciski[i].addEventListener("click", event=>{
-            var valu = {
-                nazwa: przyciski[i].innerHTML
-            }
-            console.log(valu)
-            fetch('tablecreate.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(valu),
-            })
-            .then(response => response.json())
-                .then(valu => {
-                    console.log('Success:', valu);
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
+           console.log(przyciski[i].innerHTML)
+           var xhtml2 = new XMLHttpRequest()
+           xhtml2.open("POST", "tablecreate.php", true)
+           xhtml2.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+           let req = JSON.stringify(przyciski[i].innerHTML) 
+           xhtml2.send(req)
         })
         
     }
