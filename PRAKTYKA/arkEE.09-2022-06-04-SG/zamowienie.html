@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamówienia hurtowe</title>
+    <link rel="stylesheet" href="styl4.css">
+</head>
+<body>
+    <div class="baner">
+        <h1>Sieci komputerowe</h1>
+    </div>
+    <div class="lewy">
+        <h2>Aktualizacja i zamówienia materiałów</h2>
+        <p>Do wewnętrznego użytku firmy</p>
+        <img src="./obraz.jpg" alt="sieć komputerowa">
+    </div>
+    <div class="prawy">
+        <table>
+            <tr>
+                <th>Produkt</th>
+                <th>Jednostka</th>
+                <th>Dostępna ilość</th>
+                <th>Aktualizacja</th>
+                <th>Zamówienie</th>
+            </tr>
+            <tr>
+                <td class="nazwa">Skrętka U/UTP drut</td>
+                <td>metr</td>
+                <td class="ilosc">20</td>
+                <td><button class="aktualizuj">Aktualizuj</button></td>
+                <td><button class="zamow">Zamów</button></td>
+
+            </tr>
+            <tr>
+                <td class="nazwa">Skrętka U/UTP linka</td>
+                <td>metr</td>
+                <td class="ilosc">2</td>
+                <td><button class="aktualizuj">Aktualizuj</button></td>
+                <td><button class="zamow">Zamów</button></td>
+            </tr>
+            <tr>
+                <td class="nazwa">Wtyki 8P8C</td>
+                <td>sztuki</td>
+                <td class="ilosc">10</td>
+                <td><button class="aktualizuj">Aktualizuj</button></td>
+                <td><button class="zamow">Zamów</button></td>
+            </tr>
+            <tr>
+                <td class="nazwa">Moduły Keystone</td>
+                <td>sztuki</td>
+                <td class="ilosc">30</td>
+                <td><button class="aktualizuj">Aktualizuj</button></td>
+                <td><button class="zamow">Zamów</button></td>
+            </tr>
+        </table>
+    </div>
+    <div class="stopka">
+        <a href="http://sieci.pl/">Nasza strona internetowa</a>
+        <p>Stronę przygotował: Maciej Glugla</p>
+    </div>
+    <script>
+        let stan = document.getElementsByClassName("ilosc")
+        console.log(stan.length)
+        let update = document.getElementsByClassName("aktualizuj")
+        let zamow = document.getElementsByClassName("zamow")
+        let nr_zamow = 0
+        let nazwa = document.getElementsByClassName("nazwa")
+
+        function Braki(){
+            for (let i = 0; i<stan.length; i++){
+            let a  = stan[i].innerHTML
+            if (a==0){
+                stan[i].style.backgroundColor = "red"
+            }
+            else if (a>=1 && a<=5){
+                stan[i].style.backgroundColor = "yellow"
+            }
+            else{
+                stan[i].style.backgroundColor = "honeydew"
+            }
+        }
+        }
+        Braki()
+        
+        for (let i = 0; i<update.length; i++){
+            update[i].addEventListener("click", event=>{
+                let zawartosc = prompt("Podaj nową ilość:")
+                stan[i].innerHTML=zawartosc
+                Braki()
+            })
+        }
+
+        for (let i = 0; i<zamow.length; i++){
+            zamow[i].addEventListener("click", event=>{
+                nr_zamow+=1
+                let nazwa_p = nazwa[i].innerHTML
+                alert(`Zamówienie nr: ${nr_zamow} Produkt: ${nazwa_p}`)
+            })
+        }
+    </script>
+</body>
+</html>
