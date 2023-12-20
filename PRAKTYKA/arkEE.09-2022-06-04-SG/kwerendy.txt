@@ -1,0 +1,7 @@
+SELECT nazwa, ilosc, producenci.nazwaProd FROM materialy INNER JOIN producenci ON materialy.Producenci_id = producenci.id WHERE materialy.ilosc > 9;
+
+SELECT nazwa, producenci.nazwaProd, jednostki.nazwaJedn FROM materialy INNER JOIN producenci ON materialy.Producenci_id = producenci.id INNER JOIN jednostki ON materialy.Jednostki_id = jednostki.id;
+
+CREATE USER 'zaopatrzenie'@'localhost' IDENTIFIED BY 'Z@op@trzenie';
+
+GRANT SELECT, INSERT, DELETE, UPDATE ON * TO 'zaopatrzenie'@'localhost';
