@@ -35,7 +35,7 @@ else{
            console.log(przyciski[i].innerHTML)
            var xhtml2 = new XMLHttpRequest()
            xhtml2.open("POST", "tablecreate.php", true)
-           xhtml2.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+           xhtml2.setRequestHeader("Content-Type", "application/json;charset=UTF-8") //Jak zamienic JSONa na inny sposób
            let req = JSON.stringify(przyciski[i].innerHTML) 
            xhtml2.send(req)
         })

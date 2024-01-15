@@ -1,0 +1,7 @@
+SELECT imie, nazwisko FROM matematycy WHERE matematycy.rok_urodzenia > 1700;
+
+SELECT id, nazwisko FROM matematycy WHERE matematycy.liczba_publikacji BETWEEN 11 AND 29;
+
+SELECT SUM(matematycy.liczba_publikacji) FROM matematycy WHERE matematycy.rok_urodzenia > 1750;
+
+CREATE TABLE publikacje (id INT PRIMARY KEY NOT null AUTO_INCREMENT, tytul text, rok INT);
