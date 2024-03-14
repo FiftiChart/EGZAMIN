@@ -18,7 +18,7 @@
             <button class="menu_button" id="b1">Kantor</button>
             <button class="menu_button" id="b2">Wykres walut</button>
         </div>
-        <div class="hania">
+        <div class="waluty">
             <!-- <button id="aktualne_dane">Aktualizuj dane</button> -->
             <?php
                 $c = mysqli_connect("localhost", "root", "", "waluty");

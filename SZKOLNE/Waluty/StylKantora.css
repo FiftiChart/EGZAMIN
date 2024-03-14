@@ -82,13 +82,13 @@ body{
     
 }
 
-.hania{
+.waluty{
     border: var(--mc) 5px solid;
     width: 99.5%;
     display: flex;
 }
 
-.hania > *{
+.waluty > *{
     margin: auto;
 }
 
