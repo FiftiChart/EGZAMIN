@@ -1,7 +1,8 @@
 <?php
     function tworzenie($valu){
+        
         $c = mysqli_connect("localhost", "root", "", "waluty");
-        echo json_encode($valu);
+        // echo json_encode($valu);
         $kw5 = "SELECT kursy.data, kwota FROM kursy WHERE nazwa = '$valu';";
         $q = mysqli_query($c, $kw5);
         echo "<table><tr><th colspan='2'>$valu</th></tr>
@@ -20,10 +21,16 @@
         mysqli_close($c);
     }
 
-    if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest'){
-    $valu = json_decode(file_get_contents("php://input"), true);
+    // if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest'){
+    // $valu = json_decode(file_get_contents("php://input"), true);
+    //     tworzenie($valu);
+    // }
+    if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["buttonclickedfifti"])) {
+        $valu = $_GET["buttonclickedfifti"];
         tworzenie($valu);
+        echo "test";
+    } else {
+        echo "Button value not received";
     }
-    
     
 ?>
